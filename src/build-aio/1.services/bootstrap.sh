@@ -148,3 +148,28 @@ sudo yum install -y iptables-services
 sudo iptables-save > /etc/sysconfig/iptables
 sudo systemctl enable iptables
 sudo /usr/libexec/iptables/iptables.init save
+
+#######################################################
+# Final set-up
+#######################################################
+# Once the cluster is up & running, you still need to 
+# do few things :
+#   1. Accept all certificates which are pending
+#         oc get csr -ojson | jq -r '.items[] | select(.status == {} ) | .metadata.name' | xargs oc adm certificate approve
+#   2. Create the PV for the registry
+#         oc create -f registry_pv.yaml
+#   3. Update the Image Registry PVC to use that new PV
+#         oc edit configs.imageregistry.operator.openshift.io
+#         	spec:
+#         	  ...
+#         	  managementState: Managed
+#         	  ...
+#         	  storage:
+#         	    pvc:
+#         	      claim:
+#         	status:
+#         	  ...
+#   4. Wait for all clusteroperators to be up & runnning (may take some time...)
+#   5. Update your /etc/host on your desktop to point to the services VM:
+#   		10.0.0.10 console-openshift-console.apps.cluster.okd4.local oauth-openshift.apps.cluster.okd4.local
+#######################################################
