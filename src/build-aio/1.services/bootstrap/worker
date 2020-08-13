@@ -1,0 +1,8 @@
+default pxeboot
+prompt 0
+timeout 20                                                                                                              
+
+label pxeboot
+kernel http://10.0.0.10:8080/okd4/pxeboot/vmlinuz
+append ip=dhcp rd.neednet=1 initrd=http://10.0.0.10:8080/okd4/pxeboot/initramfs.img console=tty0 console=ttyS0 coreos.inst=yes coreos.inst.install_dev=sda coreos.inst.image_url=http://10.0.0.10:8080/okd4/pxeboot/fcos.raw.xz coreos.inst.ignition_url=http://10.0.0.10:8080/okd4/worker.ign
+

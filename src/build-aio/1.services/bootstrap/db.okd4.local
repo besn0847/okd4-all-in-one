@@ -1,0 +1,38 @@
+$TTL    604800
+@       IN      SOA     services.okd4.local. admin.okd4.local. (
+                  1     ; Serial
+             604800     ; Refresh
+              86400     ; Retry
+            2419200     ; Expire
+             604800     ; Negative Cache TTL
+)
+
+; name servers - NS records
+    IN      NS      services
+
+; name servers - A records
+services.okd4.local.          IN      A       10.0.0.10
+
+; OpenShift Container Platform Cluster - A records
+bootstrap.cluster.okd4.local.        IN      A      10.0.0.5
+master-1.cluster.okd4.local.        IN      A      10.0.0.11
+master-2.cluster.okd4.local.         IN      A      10.0.0.12
+master-3.cluster.okd4.local.         IN      A      10.0.0.13
+worker-1.cluster.okd4.local.        IN      A      10.0.0.21
+worker-2.cluster.okd4.local.        IN      A      10.0.0.22
+
+; OpenShift internal cluster IPs - A records
+api.cluster.okd4.local.    IN    A    10.0.0.10
+api-int.cluster.okd4.local.    IN    A    10.0.0.10
+*.apps.cluster.okd4.local.    IN    A    10.0.0.10
+etcd-0.cluster.okd4.local.    IN    A     10.0.0.11
+etcd-1.cluster.okd4.local.    IN    A     10.0.0.12
+etcd-2.cluster.okd4.local.    IN    A    10.0.0.13
+console-openshift-console.apps.cluster.okd4.local.     IN     A     10.0.0.10
+oauth-openshift.apps.cluster.okd4.local.     IN     A     10.0.0.10
+
+; OpenShift internal cluster IPs - SRV records
+_etcd-server-ssl._tcp.cluster.okd4.local.    86400     IN    SRV     0    10    2380    etcd-0.cluster.okd4.local.
+_etcd-server-ssl._tcp.cluster.okd4.local.    86400     IN    SRV     0    10    2380    etcd-1.cluster.okd4.local.
+_etcd-server-ssl._tcp.cluster.okd4.local.    86400     IN    SRV     0    10    2380    etcd-2.cluster.okd4.local.
+
