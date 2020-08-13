@@ -69,7 +69,8 @@ sudo mv /var/nfsshare/ /home/vagrant/
 sudo ln -s /home/vagrant/nfsshare/ /var/nfsshare
 sudo echo "/var/nfsshare 10.0.0.0/24(rw,sync,no_root_squash,no_all_squash,no_wdelay)" > /etc/exports
 sudo setsebool -P nfs_export_all_rw 1
-sudo systemctl restart nfs-server
+sudo systemctl enable nfs-server
+sudo systemctl start nfs-server
 
 # Use this node as router for the whole OKD deployment
 sudo systemctl disable firewalld
