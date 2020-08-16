@@ -50,8 +50,11 @@ Then just wait for the start-up to complete (~10 minutes). The easiest way to mo
 
 The '*oc get clusteroperators*' and '*oc get pods --all-namespaces*' will give you a good overview of the start-up process. On my set-up, the limitation was primarily on the disk (hence use SSD).
 Once the start-up is completed, just connect to the console URL from your laptop :
+
 > URL : [https://console-openshift-console.apps.cluster.okd4.local/](https://console-openshift-console.apps.cluster.okd4.local/)
+
 > Login : kubeadmin
+
 > Password : bRsda-FuxkE-pXAAt-SDEtt
 
 ## Tributes
