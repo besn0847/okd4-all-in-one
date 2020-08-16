@@ -31,10 +31,7 @@ git clone https://github.com/besn0847/okd4-all-in-one.git
 There are 2 large files to download from the web for almost 10 GB in total. Download them in the boxes/directory
 | Filename       | Size | SHA256 Hash                         
 |--------------------------------|-------------------------------|--------------------
-| [okd4-aio-services-disk001.vmdk](https://drive.google.com/file/d/1onY2Z-RjvtVdFx9bEabZho6VNaKmsbdf/view) | 0.7 GB | 
-
-A3ECB4DC431DB3D6F26C3C0CA3A485096B3D0DE97BDA5C5C84268240D9D7948B
-
+| [okd4-aio-services-disk001.vmdk](https://drive.google.com/file/d/1onY2Z-RjvtVdFx9bEabZho6VNaKmsbdf/view) | 0.7 GB | A3ECB4DC431DB3D6F26C3C0CA3A485096B3D0DE97BDA5C5C84268240D9D7948B
 | [okd4-aio-master-disk001.vmdk](https://drive.google.com/file/d/1ni3_eLEamxb5FQFR_e1oZ1KFHVXbK2cs/view) | 8.8 GB | F910B0AEF95DAE5638B5D6427FE6F67B577FD7439D0720B0CC44FAF6D2D4472F
 
 ### Step 3 : Import the VMs in VirtualBox
@@ -54,8 +51,8 @@ Then just wait for the start-up to complete (~10 minutes). The easiest way to mo
 The '*oc get clusteroperators*' and '*oc get pods --all-namespaces*' will give you a good overview of the start-up process. On my set-up, the limitation was primarily on the disk (hence use SSD).
 Once the start-up is completed, just connect to the console URL from your laptop :
 > URL : [https://console-openshift-console.apps.cluster.okd4.local/](https://console-openshift-console.apps.cluster.okd4.local/)
-Login : kubeadmin
-Password : bRsda-FuxkE-pXAAt-SDEtt
+> Login : kubeadmin
+> Password : bRsda-FuxkE-pXAAt-SDEtt
 
 ## Tributes
 
